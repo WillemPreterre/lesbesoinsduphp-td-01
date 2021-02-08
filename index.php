@@ -6,12 +6,16 @@ $bs_title_class = 'text-center display-4';
 $languages = ['C', 'Java', 'Perl'];
 
 $langage="PHP";
-$Full_name="PHP : HypertextPreprocessor";
+$full_name="PHP : HypertextPreprocessor";
 $script="script";
 $serv="serveur";
 
 $nbrUn= 5;
 $nbrDeux= 10;
+
+$stringOne = "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. ";
+$stringTwo = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, nulla nemo esse accusantium dolorum iste accusamus? ";
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,12 +34,11 @@ $nbrDeux= 10;
 
 <body>
     <div class="container mt-5">
-        <h1 class="<?php // écrire la class bootstrap du titre ici  ?>"> Découverte des base du PHP</h1>
+        <h1 class="<?php echo $bs_title_class  ?>"> Découverte des base du PHP</h1>
 
         <p class="text-justify" id="intro">
-            <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> est un acronyme récursif, qui signifie "PHP: Hypertext
-            Preprocessor" : c'est un langage de <mark>script</mark> HTML,
-            exécuté côté <mark>serveur</mark> . Sa syntaxe est empruntée aux langages C, Java et Perl , et
+            <abbr title="PHP: Hypertext Preprocessor"><?php echo $langage ?></abbr> est un acronyme récursif, qui signifie "<?php echo $full_name ?>" : c'est un langage de <mark><?php echo $script ?></mark> HTML,
+            exécuté côté <mark><?php echo $serv ?></mark> . Sa syntaxe est empruntée aux langages C, Java et Perl , et
             est facile à apprendre. Le
             but de ce langage est de permettre aux développeurs web d'écrire des pages dynamiques rapidement, mais vous
             pouvez faire beaucoup plus avec PHP.
@@ -50,14 +53,18 @@ $nbrDeux= 10;
                         </a>
                     </h3>
                 </div>
-
+            
                 <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                     <div class="card-body">
-                        <p>Somme : 10 + 10</p>
-                        <p>Produit : 10 * 10</p>
-                        <p>Modulo : 10 % 10</p>
-                        <p>Différence : 10 - 10</p>
-                        <p>Division : 10 / 10</p>
+                        
+
+                    
+
+                        <p>Somme : 10 + 10 = <?=  (10 + 10) ?> </p> <!-- Cette syntaxe permet d'écrire plus rapidement echo -->
+                        <p>Produit : 10 * 10 = <?php echo  (10 * 10) ?> </p>
+                        <p>Modulo : 10 % 10 = <?php echo  (10 % 10) ?></p>
+                        <p>Différence : 10 - 10 = <?php echo  (10 - 10) ?></p>
+                        <p>Division : 10 / 10 = <?php echo  (10 / 10) ?></p>
                     </div>
                 </div>
             </div>
@@ -72,12 +79,7 @@ $nbrDeux= 10;
                 </div>
                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                     <div class="card-body">
-                        <p>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. <br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, nulla nemo esse
-                            accusantium dolorum iste accusamus?
-                        </p>
+                    <p> <?php echo $stringOne . $stringOne ?> </p> 
                     </div>
                 </div>
             </div>
@@ -96,24 +98,62 @@ $nbrDeux= 10;
                         <p>
                             La variable un est supérieure à la variable deux :
                             <!-- écrire votre code dans le span -->
-                            <span class="bg-secondary p-2"> résultat </span></p>
+                            <span class="bg-secondary p-2"> 
+                            <?php if ($nbrUn >= $nbrDeux) {
+                                echo "True";
+                            }else {
+                                echo "False";
+                            }
+                            ?> </span></p>
                         <p>La variable un est strictement supérieure à la variable deux :
                             <!-- écrire votre code dans le span -->
-                            <span class="bg-secondary p-2"> résultat </span>
+                            <span class="bg-secondary p-2"> 
+                            <?php if ($nbrUn > $nbrDeux) {
+                                echo "True";
+                            }else {
+                                echo "False";
+                            }
+                            ?>
+                             </span>
                         </p>
                         <p>La variable un est égale à la variable deux :
-                            <span class="bg-secondary p-2"> résultat </span>
+                            <span class="bg-secondary p-2"> 
+                            <?php if ($nbrUn == $nbrDeux) {
+                                echo "True";
+                            }else {
+                                echo "False";
+                            }
+                            ?>
+                             </span>
                         </p>
                         <p>La variable un est strictement égale à la variable deux :
                             <span class="bg-secondary p-2">
-                                résultat </span>
+                            <?php if ($nbrUn === $nbrDeux) {
+                                echo "True";
+                            }else {
+                                echo "False";
+                            }
+                            ?>
+                                 </span>
                         </p>
                         <p>La variable un est supérieure ou égale à la variable deux :
                             <span class="bg-secondary p-2">
-                                résultat </span>
+                            <?php if ($nbrUn >= $nbrDeux) {
+                                echo "True";
+                            }else {
+                                echo "False";
+                            }
+                            ?> </span>
                         </p>
                         <p>La variable un est inférieure ou strictement égale à la variable deux :
-                            <span class="bg-secondary p-2"> résultat </span>
+                            <span class="bg-secondary p-2"> 
+                            <?php if ($nbrUn <= $nbrDeux) {
+                                echo "True";
+                            }else {
+                                echo "False";
+                            }
+                            ?>
+                             </span>
                         </p>
                     </div>
                 </div>
@@ -131,6 +171,13 @@ $nbrDeux= 10;
                     <div class="card-body">
                         <h4>Liste des langages dont la syntaxe du PHP est inspirée</h4>
                         <!-- écrire votre code ici -->
+                        <ul>
+                            
+                            <li><?= $languages[0] ?></li>
+                            <li><?= $languages[1]?></li>
+                            <li><?= $languages[2]?></li>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>
